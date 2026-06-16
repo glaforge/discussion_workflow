@@ -30,7 +30,7 @@ jobs:
         env:
           OWNER: 'google'
           REPO: 'adk-java'
-          GEMINI_API_KEY: 
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           cat > /tmp/discussion.json << 'EOF'
           ${{ toJson(github.event.discussion) }}

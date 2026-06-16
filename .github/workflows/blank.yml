@@ -20,7 +20,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Set up Python
+      - name: Set up Java
         uses: actions/setup-java@v5
         with:
           distribution: temurin
@@ -32,3 +32,7 @@ jobs:
           REPO: 'adk-java'
           GEMINI_API_KEY: 
         run: |
+          cat > /tmp/discussion.json << 'EOF'
+          ${{ toJson(github.event.discussion) }}
+          EOF
+          ./gradlew run --args="/tmp/discussion.json"

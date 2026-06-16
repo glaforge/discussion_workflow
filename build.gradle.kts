@@ -18,6 +18,9 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
 
+    // Google Agent Development Kit (ADK) Core
+    implementation("com.google.adk:google-adk-kotlin-core:0.3.0")
+
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 

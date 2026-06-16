@@ -13,7 +13,7 @@ jobs:
   agent-answer-questions:
     if: >-
       (github.event_name == 'discussion' && github.event.discussion.category.name == 'Q&A') ||
-      (github.event_name == 'discussion_comment' && contains(github.event.comment.body, '@adk-bot') && github.event.sender.login != 'adk-bot')
+      (github.event_name == 'discussion_comment' && github.event.discussion.category.name == 'Q&A')
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,7 @@ jobs:
         env:
           OWNER: 'google'
           REPO: 'adk-java'
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{}}
         run: |
           cat > /tmp/discussion.json << 'EOF'
           ${{ toJson(github.event.discussion) }}

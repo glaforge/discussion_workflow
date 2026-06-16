@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
     val runner = InMemoryRunner(agent)
     
     println("Reading content from file: $filePath")
-    val content = Content.fromText(fileContent, "user")
+    val content = Content.fromText("user", fileContent)
     
     try {
         val responseIterator = runner.run("user-1", "session-1", content, RunConfig())
